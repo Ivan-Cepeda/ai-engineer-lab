@@ -1,0 +1,23 @@
+# Credenciales: nunca se suben
+.env
+.env.local
+
+# Embeddings guardados. Se regeneran solos en la primera corrida.
+cache/
+
+# Indices de la mini base vectorial (L2-02)
+indices/
+
+# PI/ es un repositorio git aparte, con su propio historial.
+# Si no lo excluyeramos, git lo tomaria como submodulo y el clonado se rompe.
+PI/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+.pytest_cache/
+
+# Modelos descargados por sentence-transformers
+.cache/

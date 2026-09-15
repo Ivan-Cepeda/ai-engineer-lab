@@ -1,0 +1,17 @@
+# Cliente de la API. Sirve para OpenAI y para Gemini: los dos hablan el mismo
+# protocolo, incluido el endpoint de embeddings.
+openai>=1.60.0
+
+# Carga las variables de entorno desde el archivo .env
+python-dotenv>=1.0.1
+
+# Matematica de vectores. Es lo que hace que comparar contra miles de
+# embeddings tarde milisegundos en vez de minutos.
+numpy>=1.26.0
+
+# --- Opcionales, solo para L4 (embeddings locales) --------------------------
+# Son pesados (descargan PyTorch, mas de 1 GB). Los ejercicios de L4 detectan
+# si estan instalados y, si no, explican igual el concepto sin romperse.
+#
+#   pip install sentence-transformers
+#   pip install faiss-cpu
