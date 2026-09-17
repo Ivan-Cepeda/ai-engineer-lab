@@ -95,13 +95,13 @@ hace que comparar contra miles de vectores tarde milisegundos en vez de minutos.
 ```
 M2/
 ├── common/                      Lo compartido por todas las lecciones
-│   ├── config.py                Credenciales y modelos (chat + embeddings)
-│   ├── embeddings.py            Generar embeddings, con caché en disco
-│   ├── vectores.py              Similitud, normalización, búsqueda k-NN
-│   ├── chunking.py              Las cinco estrategias de fragmentación
-│   ├── busqueda.py              BM25 completo y fusión de rankings (RRF)
-│   ├── texto.py                 Normalización para comparar resultados
-│   └── ui.py                    Impresión en consola
+│   ├── config.py               Credenciales y modelos (chat + embeddings)
+│   ├── embeddings.py           Generar embeddings, con caché en disco
+│   ├── vectores.py             Similitud, normalización, búsqueda k-NN
+│   ├── chunking.py             Las cinco estrategias de fragmentación
+│   ├── busqueda.py             BM25 completo y fusión de rankings (RRF)
+│   ├── texto.py                Normalización para comparar resultados
+│   └── ui.py                   Impresión en consola
 │
 ├── datos/
 │   └── base_conocimiento.md     El manual que usan todos los ejercicios
@@ -110,7 +110,14 @@ M2/
 │   ├── 01_que_es_un_embedding.py
 │   ├── 02_similitud_coseno_vs_punto.py
 │   ├── 03_estrategias_de_chunking.py
-│   └── 04_chunks_con_metadata.py
+│   ├── 04_chunks_con_metadata.py
+│   └── 05_chunking_avanzado.py
+│
+├── L2_bases_vectoriales/
+│   ├── 01_busqueda_knn_desde_cero.py
+│   ├── 02_mini_base_vectorial.py
+│   ├── 03_busqueda_hibrida.py
+│   └── 04_chromadb.py
 │
 ├── cache/                       Embeddings guardados (ignorado por git)
 ├── .env.example

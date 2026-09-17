@@ -9,9 +9,17 @@ Después de esta lección, FAISS y Pinecone dejan de ser magia.
 | 01 | [`01_busqueda_knn_desde_cero.py`](01_busqueda_knn_desde_cero.py) | Qué hace realmente una base vectorial, escrito con un bucle; y por qué NumPy la vuelve viable |
 | 02 | [`02_mini_base_vectorial.py`](02_mini_base_vectorial.py) | Una base vectorial completa: agregar, buscar, filtrar, borrar, persistir |
 | 03 | [`03_busqueda_hibrida.py`](03_busqueda_hibrida.py) | Semántica + palabras clave, fusionadas con RRF; y qué le falta a un BM25 casero |
+| 04 | [`04_chromadb.py`](04_chromadb.py) | La misma base, pero con ChromaDB: cada cosa que escribiste a mano tiene su equivalente |
 
 ```bash
 python 01_busqueda_knn_desde_cero.py --sin-cache
+```
+
+El ejercicio 04 necesita una librería extra. Corre igual sin ella: detecta
+que falta y explica los conceptos.
+
+```bash
+pip install chromadb
 ```
 
 ## Ideas que hay que llevarse
@@ -50,6 +58,25 @@ necesitan búsqueda por palabras clave (ejercicio 03).
 **RRF fusiona rankings sin poder sumar sus puntajes.** Ignora los números y mira
 sólo las posiciones. Un documento bien ubicado en las dos listas es una señal
 mucho más fuerte que ser bueno en una sola (ejercicio 03).
+
+**Una base vectorial de verdad no tiene ningún concepto nuevo.** El ejercicio 04
+pone lado a lado lo que escribiste a mano y su equivalente en ChromaDB: `agregar`
+es `add`, `buscar` es `query`, el filtro es `where`. Lo único que cambia es quién
+escribe el código (ejercicio 04).
+
+**Chroma devuelve DISTANCIAS, no similitudes.** Más bajo es mejor. Si las ordenás
+de mayor a menor creyendo que son similitudes, te quedás con los peores
+resultados y nada te avisa. Es la misma trampa de la distancia euclidiana en
+L1-02 (ejercicio 04).
+
+**El parámetro `hnsw:space` hay que ponerlo siempre.** Si no, Chroma usa
+distancia euclidiana por defecto, que no es lo que querés para embeddings de
+texto. Es el error silencioso más común al empezar (ejercicio 04).
+
+**Los valores que usás para filtrar hay que normalizarlos al guardarlos.** Una
+tilde de diferencia entre `garantías` y `garantias` hace que el filtro no
+encuentre nada, sin ningún error. Este bug estuvo en la primera versión del
+ejercicio 04 y quedó documentado ahí.
 
 ## Después de esto
 

@@ -9,6 +9,12 @@ python-dotenv>=1.0.1
 # embeddings tarde milisegundos en vez de minutos.
 numpy>=1.26.0
 
+# --- Opcional, para L2 ejercicio 04 -----------------------------------------
+# Base de datos vectorial local. Ocupa unos 100 MB con sus dependencias.
+# El ejercicio detecta si falta y explica los conceptos igual.
+#
+#   pip install chromadb
+
 # --- Opcionales, solo para L4 (embeddings locales) --------------------------
 # Son pesados (descargan PyTorch, mas de 1 GB). Los ejercicios de L4 detectan
 # si estan instalados y, si no, explican igual el concepto sin romperse.
