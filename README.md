@@ -3,8 +3,8 @@
 Ejercicios prácticos del **módulo 2** de la carrera de AI Engineering:
 embeddings, bases vectoriales y RAG.
 
-> **Publicación en curso.** Por ahora está la lección 1. Las otras tres
-> (bases vectoriales, RAG y open source) se van sumando a este mismo repo.
+> **Publicación en curso.** Por ahora están las lecciones 1 y 2. Las otras
+> dos (RAG y open source) se van sumando a este mismo repo.
 Todo corre indistintamente con **OpenAI** o con **Google Gemini**, cambiando una
 variable de entorno.
 
@@ -36,7 +36,7 @@ tus documentos y contesta sólo con lo que encontró — citando de dónde lo sa
 
 ```
 L1  →  convertir texto en números que capturan significado   ← disponible
-L2  →  guardar esos números y buscar en ellos rápido          (en camino)
+L2  →  guardar esos números y buscar en ellos rápido         ← disponible
 L3  →  usar lo que encontraste para responder con fundamento  (en camino)
 L4  →  hacerlo sin depender de una API, si te conviene        (en camino)
 ```
@@ -99,6 +99,7 @@ M2/
 │   ├── embeddings.py            Generar embeddings, con caché en disco
 │   ├── vectores.py              Similitud, normalización, búsqueda k-NN
 │   ├── chunking.py              Las cinco estrategias de fragmentación
+│   ├── busqueda.py              BM25 completo y fusión de rankings (RRF)
 │   ├── texto.py                 Normalización para comparar resultados
 │   └── ui.py                    Impresión en consola
 │
@@ -147,6 +148,7 @@ resultados reales obtenidos con `gemini-embedding-001`:
 |-------|--------------|-----------|
 | L1-02 | ¿Coseno y producto punto dan lo mismo? | Sí, porque los vectores vienen normalizados (norma = 1.0) |
 | L1-05 | Las cinco estrategias de chunking | **Empate** entre tres, incluida "tamaño fijo" |
+| L2-01 | NumPy contra un bucle de Python | **23× más rápido**, mismo resultado |
 
 El segundo es el más incómodo: sobre un documento chico, cortar por tamaño
 fijo funciona igual de bien que las estrategias avanzadas. El ejercicio explica
@@ -164,6 +166,8 @@ encabezado. Abajo, lo que aplica a L1:
 | Recomendación del video | Estado |
 |---|---|
 | Chunks fijos rompen la coherencia | Ya estaba (L1-03) |
+| Ceguera léxica ante códigos y SKUs | Ya estaba (L2-03) |
+| Búsqueda híbrida BM25 + RRF | Ya estaba (L2-03), **mejorado**: BM25 completo en `common/busqueda.py` |
 | Chunking semántico | **Agregado** (L1-05) |
 | Chunking por estructura | **Agregado** (L1-05) |
 | Reranking, transformación de consultas y el resto | Llegan con L3 |
@@ -196,11 +200,14 @@ falle ruidosamente en vez de corromper los resultados en silencio.
 
 ## Orden sugerido
 
-Empezá por [`L1_embeddings_y_chunking/README.md`](L1_embeddings_y_chunking/README.md)
-y hacé los ejercicios en orden numérico: cada uno asume el anterior.
+1. **L1** — qué es un embedding y cómo partir documentos.
+2. **L2** — cómo se guardan esos vectores y cómo se busca en ellos.
 
-Las lecciones 2, 3 y 4 se publican en este mismo repositorio a medida que estén
-revisadas.
+Dentro de cada carpeta, hacé los ejercicios en orden numérico: cada uno asume el
+anterior. L2 da por vistas las bases de L1.
+
+Las lecciones 3 (RAG) y 4 (open source) se publican en este mismo repositorio a
+medida que estén revisadas.
 
 ---
 

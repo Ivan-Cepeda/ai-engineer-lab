@@ -77,5 +77,5 @@ Seguí con [`DESAFIOS.md`](DESAFIOS.md). Son cinco consignas, y la número 4
 —calibrar el tamaño del chunk midiendo— es la que más se parece al trabajo
 real.
 
-La lección **L2 (bases de datos vectoriales)**, donde estos vectores se
-guardan y se buscan en serio, se publica en este mismo repositorio.
+Después seguí con **[L2](../L2_bases_vectoriales/README.md)**, donde estos
+vectores se guardan y se buscan en serio.
